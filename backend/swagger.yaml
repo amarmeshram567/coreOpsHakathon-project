@@ -1,0 +1,11 @@
+openapi: 3.0.0
+info:
+  title: CoreOps API
+  version: 1.0.0
+paths:
+  /api/auth:
+    get:
+      summary: "Get authentication info"
+      responses:
+        '200':
+          description: "Success"

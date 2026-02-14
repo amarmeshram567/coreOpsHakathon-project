@@ -1,0 +1,15 @@
+import { pool } from "../../config/db.js"
+
+
+export const updateSettings = async (req: any, res: any) => {
+    const { timezone, currency } = req.body;
+
+    await pool.query(
+        `UPDATE workspaces
+         SET timezone=$1, currency=$2
+         WHERE id=$3`,
+        [timezone, currency, req.user.workspace_id]
+    );
+
+    res.json({ message: "Settings updated" });
+};
